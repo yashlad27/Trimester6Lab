@@ -10,7 +10,7 @@ class student1{
     private int prn;
 
     student1(String Name, int RollNum, int PRN){
-        super(Name, RollNum, PRN);
+        //super(Name, RollNum, PRN);
     }
 
     void details(){
