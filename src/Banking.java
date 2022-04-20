@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.Scanner;
 
 class Banking{
@@ -18,7 +17,7 @@ class Banking{
 
             }catch(Exception f)
             {
-
+                System.out.println("--x--");
             }
         }
     }
@@ -52,22 +51,46 @@ class Banking{
     }
 }
 class Login{
-    int ac_number = 1234;
-    int ac_pass = 9999;
+    int ac_number = 1111;
+    int ac_pass = 1234;
     int ac;
     int pw;
+    String cname;
+    int cid;
+
     public void acceptInput(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Customer Name: ");
+        cname= scanner.nextLine();
+        int flag=1;
+
+        // cid exception:
+        do {
+            System.out.println("Enter Customer ID: ");
+            cid = scanner.nextInt();
+
+            try {
+                if (cid < 1 || cid > 20) {
+                    throw new ArithmeticException();
+                }
+                flag=0;
+            } catch (ArithmeticException ae) {
+                System.out.println("Range out of bounds");
+            }
+        }while(flag==1);
+
         System.out.println("Enter the account number:");
         ac = scanner.nextInt();
         System.out.println("Enter the Password:");
         pw = scanner.nextInt();
+
+
     }
     public void verify() throws Exception{
 
         if(ac == ac_number && pw == ac_pass)
         {
-            System.out.println("Login Successfull!");
+            System.out.println("Login Successfully!");
             Banking banking = new Banking();
             System.out.println(" ");
             System.out.println("Your Balance is: "+banking.getBalance()+"  Rupees");
