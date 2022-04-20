@@ -23,6 +23,9 @@ public class lab07 {
         }
         System.out.println("after starting thread isAlive: "+t1.isAlive()); // after
         System.out.println("---------x---------");
+
+        t1.setPriority(10);
+
         // runnable interface object->
         Thread t2 = new Thread(new MulRun()); // creating object of runnable
         System.out.println("before starting thread isAlive: "+t2.isAlive());
@@ -34,7 +37,7 @@ public class lab07 {
             // code
         }
         System.out.println("after starting thread isAlive: "+t2.isAlive());
-
+        t2.setPriority(5);
         System.out.println("-----------x----------");
     }
 }
